@@ -1,77 +1,81 @@
 # 腾讯云表单自动填写工具
 
-一个用于自动填写腾讯云表单的桌面应用程序。
+一个用于自动填写腾讯云表单的桌面应用程序，使用Python和PyQt6开发。
 
-## 项目结构
+## 功能特点
 
-form-auto-fill/
-├── src/
-│ ├── form_filler.py # 主程序文件
-│ └── form_template.html # 表单模板文件（用于开发参考）
-├── requirements.txt # 项目依赖
-└── README.md # 项目说明文档
+- 自动填写表单信息
+- 保存和管理收货地址
+- 现代化的图形界面
+- 支持查看和修改地址信息
+- 自动记住上次填写的信息
 
-## 注意事项
+## 安装说明
 
-1. 使用前请确保已安装Chrome浏览器
-2. 需要稳定的网络连接
-3. 如需修改预设数据，请修改源代码中的form_data字典
+### 环境要求
 
-## 依赖要求
-
-- Python 3.6+
-- selenium
-- tkinter (Python标准库)
+- Python 3.8+
 - Chrome浏览器
-- ChromeDriver (与Chrome版本匹配)
+- ChromeDriver
 
-## requirements.txt
-    selenium>=4.0.0
-    pyinstaller>=5.0.0
+### 依赖安装
 
 ```bash
-pip install -r requirements.txt
+# 安装所需的Python包
+pip install PyQt6
+pip install selenium
 ```
 
-## 打包命令
+### ChromeDriver安装
 
-### Windows系统打包命令
-
-```bash
-cd TencentFill
-# 基础打包
-pyinstaller --windowed --name "表单填写工具" form_filler.py
-# 单文件打包（推荐）
-pyinstaller --windowed --onefile --name "表单填写工具" form_filler.py
-# 添加图标打包
-pyinstaller --windowed --onefile --icon=icon.ico --name "表单填写工具" form_filler.py
-```
-
-### Mac系统打包命令
-
-```bash
-cd TencentFill
-# 基础打包
-pyinstaller --windowed --name "表单填写工具" form_filler.py
-# 单文件打包（推荐）
-pyinstaller --windowed --onefile --name "表单填写工具" form_filler.py
-# 添加图标打包
-pyinstaller --windowed --onefile --icon=icon.icns --name "表单填写工具" form_filler.py
-```
-
-### 打包参数说明
-
-- `--windowed`: 创建一个不显示命令行窗口的GUI应用
-- `--onefile`: 将所有依赖打包成单个可执行文件
-- `--name`: 指定生成的可执行文件名称
-- `--icon`: 指定应用程序图标（可选）
-- `--clean`: 清理临时文件（可选）
+1. 确保已安装Chrome浏览器
+2. 下载与Chrome浏览器版本匹配的[ChromeDriver](https://sites.google.com/chromium.org/driver/)
+3. 将ChromeDriver放入系统PATH路径中
 
 ## 使用说明
 
-1. 运行打包后的可执行文件
-2. 在输入框中输入或确认表单URL
-3. 点击"开始填写"按钮
-4. 程序会自动填写预设的表单信息
+1. 首次运行
+   - 启动程序后会提示修改默认地址信息
+   - 必须修改默认地址才能继续使用
 
-## 预设表单数据
+2. 日常使用
+   - 点击"查看地址"可以查看当前保存的地址信息
+   - 点击"修改地址"可以修改保存的地址信息
+   - 在输入框中粘贴表单URL
+   - 点击"开始填写"按钮自动填写表单
+
+## 文件说明
+
+- `form_filler.py`: 主程序文件
+- `config.py`: 配置文件，包含默认表单数据
+- `config_manager.py`: 配置管理模块
+- `form_config.json`: 保存的配置文件
+
+## 注意事项
+
+1. 确保Chrome浏览器已正确安装
+2. 确保网络连接正常
+3. 首次使用需要修改默认地址
+4. 程序会自动保存修改后的地址信息
+
+## 常见问题
+
+1. 无法启动Chrome浏览器
+   - 检查Chrome是否正确安装
+   - 确认ChromeDriver版本是否匹配
+
+2. 表单填写失败
+   - 检查网络连接
+   - 确认URL是否正确
+   - 确认表单页面是否加载完成
+
+## 开发说明
+
+本项目使用以下技术栈：
+- PyQt6: 用于构建图形界面
+- Selenium: 用于自动化表单填写
+- JSON: 用于配置文件存储
+
+## 许可证
+
+© 2025 Form Auto-Fill Tool. All rights reserved.
